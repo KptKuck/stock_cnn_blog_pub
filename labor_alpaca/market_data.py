@@ -1,11 +1,12 @@
 import alpaca_trade_api as tradeapi
 
-api = tradeapi.REST('PKEVTUZEU8JACZ6PH0ML',
-        'exetSvXaOrexPTKblGYrgJEhR1duYtB0PwdeiCkZ',
-        'https://paper-api.alpaca.markets')
+api = tradeapi.REST(APCA_API_KEY_ID,
+                    APCA_API_SECRET_KEY,
+                    APCA_API_BASE_URL)
 
 # Get daily price data for AAPL over the last 5 trading days.
 barset = api.get_barset('AAPL', 'day', limit=5)
+barset_min = api.get_barset('AAPL', 'hour', limit=5000)
 aapl_bars = barset['AAPL']
 
 # See how much AAPL moved in that timeframe.
